@@ -43,6 +43,11 @@ Cmdline_old ()
 				export NODHCP
 				;;
 
+			noslaac)
+				NOSLAAC="true"
+				export NOSLAAC
+				;;
+
 			ethdevice=*)
 				DEVICE="${_PARAMETER#ethdevice=}"
 				ETHDEVICE="${DEVICE}"
@@ -112,6 +117,18 @@ Cmdline_old ()
 
 				export STATICIP
 				;;
+
+			ip6=*)
+				STATICIP6="${_PARAMETER#ip6=}"
+
+				if [ -z "${STATICIP6}" ]
+				then
+					STATICIP6="frommedia"
+				fi
+
+				export STATICIP6
+				;;
+
 
 			live-media=*|bootfrom=*)
 				LIVE_MEDIA="${_PARAMETER#*=}"

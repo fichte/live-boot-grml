@@ -105,13 +105,32 @@ do_netsetup ()
 		done
 	else
 		for interface in ${DEVICE}; do
-			ipconfig -t "$ETHDEV_TIMEOUT" "${interface}" | tee "/netboot-${interface}.config"
-
-			[ -e "/run/net-${interface}.conf" ] && . "/run/net-${interface}.conf"
-
-			if [ "$IPV4ADDR" != "0.0.0.0" ]
+			if [ -n "${STATICIP}" ] && [ "${STATICIP}" != "frommedia" ] && [ -n "${NODHCP}" ]
 			then
-				break
+				Parseipv4
+				sysctl -w net.ipv6.conf.${ifname}.autoconf=0
+				sysctl -w net.ipv6.conf.${ifname}.accept_ra=0
+				ip link set ${ifname} up
+				ip addr add ${ifaddress}/${ifprefix} dev ${ifname}
+				ip route add default via ${ifgateway} dev ${ifname}
+				echo "nameserver ${nameserver}" > /etc/resolv.conf
+			else
+				ipconfig -t "$ETHDEV_TIMEOUT" "${interface}" | tee "/netboot-${interface}.config"
+				[ -e "/run/net-${interface}.conf" ] && . "/run/net-${interface}.conf"
+
+				if [ "$IPV4ADDR" != "0.0.0.0" ]
+				then
+					break
+				fi
+			fi
+
+			if [ -n "${STATICIP6}" ] && [ "${STATICIP6}" != "frommedia" ] && [ -n "${NOSLAAC}" ]
+			then
+				Parseipv6
+				ip -6 link set ${ifname} up
+				ip -6 addr add ${ifaddress}/${ifprefix} dev ${ifname}
+				ip -6 route add default via ${ifgateway} dev ${ifname}
+				echo "nameserver ${nameserver}" >> /etc/resolv.conf
 			fi
 		done
 	fi
