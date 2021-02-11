@@ -242,11 +242,11 @@ fi
 
 [ "${QUIET}" ] || echo -n " dns"
 
-# /lib/libnss_dns.so.*:a   DNS
-# /lib/libnss_files.so.*:  /etc/hosts and /etc/passwd
-# /lib/libnss_compat.so.*: /etc/passwd
+# libnss_dns.so.*:    DNS
+# libnss_files.so.*:  /etc/hosts and /etc/passwd
+# libnss_compat.so.*: /etc/passwd
 
-for _SHLIB in $(find /lib/ -name 'libnss_dns.so.*' -o -name 'libnss_files.so.*')
+for _SHLIB in $(find /lib /usr/lib -name 'libnss_dns.so.*' -o -name 'libnss_files.so.*' | grep -v '/lib/live')
 do
 	copy_exec "${_SHLIB}"
 done
@@ -262,6 +262,11 @@ if [ -x /sbin/vconfig ]
 then
 	copy_exec /sbin/vconfig
 	manual_add_modules 8021q
+fi
+
+if [ -x /sbin/ethtool ]
+then
+       copy_exec /sbin/ethtool
 fi
 
 [ "${QUIET}" ] || echo .

@@ -1,3 +1,126 @@
+live-boot (1:20200527+grml.5) unstable; urgency=medium
+
+  * [b727a78] /e/n/i: move sourcing of /etc/network/interfaces.d/ to begin
+    of file
+  * [61b7447] Avoid executing memdiskfind under Secure Boot
+
+ -- Michael Prokop <mika@grml.org>  Sat, 18 Jul 2020 17:02:55 +0200
+
+live-boot (1:20200527+grml.4) unstable; urgency=medium
+
+  * [b1e38b1] Include ethtool binary for debugging network configuration
+    during network boot
+
+ -- Michael Prokop <mika@grml.org>  Fri, 17 Jul 2020 23:23:08 +0200
+
+live-boot (1:20200527+grml.3) unstable; urgency=medium
+
+  * [b368066] 0020-read-only: iterate over all devices + improve console
+    message layout
+  * [ea4f167] 9990-misc-helpers.sh: ensure to appened to boot.log file
+
+ -- Michael Prokop <mika@grml.org>  Fri, 10 Jul 2020 09:07:01 +0200
+
+live-boot (1:20200527+grml.2) unstable; urgency=medium
+
+  * [2f7a8c9] Add instance for sourcing /etc/network/interfaces.d/
+    only once
+
+ -- Michael Prokop <mika@grml.org>  Tue, 23 Jun 2020 12:22:16 +0200
+
+live-boot (1:20200527+grml.1) unstable; urgency=medium
+
+  [ Michael Prokop ]
+  * Sync with Debian's upstream and release new version
+    (https://salsa.debian.org/live-team/live-boot/),
+    git commit 24f2452
+  * [bcf2959] 9990-grml-networking.sh: support /etc/network/interfaces.d/*
+    in /e/n/i
+  * [b4a7f36] Fix duplicate Homepage header in debian/control
+
+  [ Roland Clobus ]
+  * [cb53729] checkbashisms can be found on salsa.debian.org now.
+  * [d620bde] The homepage is https://wiki.debian.org/DebianLive
+  * [e8e759f] Updated URL to the manual
+  * [01b2c89] Used the same text for po4a as in live-manual.
+  * [b4a78aa] Fixed fetching the version number.
+  * [59a5992] Updated URL to the homepage and manual.
+  * [4969912] Fixed a small typo.
+  * [2cc13e5] Fixed Lintian warning: manpage-section-mismatch
+  * [b50563d] Automatically create a snapshot of the latest package
+  * [3ab3594] Always rebuild po4a.cfg This is needed to ensure that new
+    languages will automatically be found
+  * [866ff26] Delete all generated files. They are generated from the po
+    files.
+  * [1fdc48f] Rebuild the translations
+  * [cf01ed7] New Build-Depends: po4a for the translation files
+  * [2821546] Use 'true' when referring to boolean environment variables
+  * [9188c08] Updated the translation files. The translators can now
+    update their translations.
+
+  [ Benjamin Drung ]
+  * [f18a282] Also search for libnss_*.so files in /usr/lib (Closes:
+    #930419)
+  * [bac527f] components/9990-networking.sh: Add shellcheck override
+  * [9944436] Fix DNS search entry in /etc/resolv.conf
+  * [07d13d4] Fix shellcheck in components/9990-main.sh
+  * [179707b] Simplify empty check for /etc/resolv.conf
+  * [44c651d] Create /etc/hostname in initramfs
+  * [d9d44fd] Copy /etc/hostname and /etc/hosts into target
+  * [9c27c7a] Fix flipped logic for handling memdiskfind
+  * [9b976b5] components/9990-main.sh: Fix shellcheck issue SC2236
+
+  [ Luca Boccassi ]
+  * [7d09142] Set Rules-Requires-Root: no
+  * [fa4cd2e] Set Standards-Version to 4.3.0
+  * [033a004] Update changelog for 1:20190614 release
+
+  [ Steven Shiau ]
+  * [abfb059] A workaround to make sure /dev/mtd0 can be created
+  * [d825b74] Use ntfs-3g instead of kernel module ntfs.ko.
+
+  [ Marcel Partap ]
+  * [4aa52e5] Accept multiple overlay names from persistence-label
+    parameter
+  * [5bf9f57] Fix spurious error msgs from live-boot about failed mounts…
+  * [7a233a2] Document the fact that persistence-label now accepts a list
+  * [17ffaa3] Set sticky bit on /var/tmp as well (matching perms in base-
+    files)
+
+  [ Debian Janitor ]
+  * [a51d847] Update standards version to 4.4.1, no changes needed.
+  * [f5c54b7] Bump debhelper from old 10 to 12. + debian/rules: Move
+    --fail-missing argument to dh_missing.
+  * [ca6430e] Set debhelper-compat version in Build-Depends.
+
+  [ Lyndon Brown ]
+  * [0488840] amend copyright
+  * [36d4a16] "Live Systems" -> "Debian Live"
+
+ -- Michael Prokop <mika@grml.org>  Wed, 27 May 2020 14:13:19 +0200
+
+live-boot (1:20190614) unstable; urgency=medium
+
+  [ Roland Clobus ]
+  * The homepage is https://wiki.debian.org/DebianLive
+  * Used the same text for po4a as in live-manual.
+  * Updated URL to the homepage and manual.
+  * Fixed Lintian warning: manpage-section-mismatch
+  * Always rebuild po4a.cfg This is needed to ensure that new languages
+    will automatically be found
+  * New Build-Depends: po4a for the translation files
+  * Updated the translation files. The translators can now update their
+    translations.
+
+  [ Benjamin Drung ]
+  * Also search for libnss_*.so files in /usr/lib (Closes: #930419)
+
+  [ Luca Boccassi ]
+  * Set Rules-Requires-Root: no
+  * Set Standards-Version to 4.3.0
+
+ -- Luca Boccassi <bluca@debian.org>  Fri, 14 Jun 2019 10:55:07 +0100
+
 live-boot (1:20180603+grml.3) unstable; urgency=medium
 
   * [d189b07] Ensure locating libnss* files doesn't fail on merged-usr
