@@ -1,3 +1,33 @@
+live-boot (1:20210208+grml.2) unstable; urgency=medium
+
+  [ Mihai Moldovan ]
+  * [a70800e] 9990-misc-helpers.sh: fix RAID detection for findiso.
+  * [cf60d58] 9990-misc-helpers.sh: support lvm/mdadm in fromiso feature.
+
+ -- Michael Prokop <mika@grml.org>  Fri, 26 Mar 2021 08:57:35 +0100
+
+live-boot (1:20210208+grml.1) unstable; urgency=medium
+
+  [ Steven Shiau ]
+  * [e82ece9] 9990-select-eth-device.sh: check carrier, pick NIC
+  * [7454aae] Revert "Merge branch 'master' into 'master'"
+  * [cd108f7] Update 9990-select-eth-device.sh
+
+  [ Benjamin Drung ]
+  * [56ec826] Fix leading space in DEVICE setting
+
+  [ Raphaël Hertzog ]
+  * [b411378] Update standards version to 4.5.0, no changes needed.
+
+  [ Michael Prokop ]
+  * [9d4ad8c] Avoid overlay files of libnss* ending up in initramfs
+
+  [ Mihai Moldovan ]
+  * [9829d8a] 9990-misc-helpers.sh: allow fs type override in fromiso
+    feature.
+
+ -- Michael Prokop <mika@grml.org>  Tue, 09 Mar 2021 18:32:14 +0100
+
 live-boot (1:20200527+grml.5) unstable; urgency=medium
 
   * [b727a78] /e/n/i: move sourcing of /etc/network/interfaces.d/ to begin
