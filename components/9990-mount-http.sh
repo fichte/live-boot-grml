@@ -41,6 +41,8 @@ do_httpmount ()
 
 							*)
 								log_begin_msg "Trying wget ${url} -O ${dest}/$(basename ${url})"
+								echo "sleeping 30 seconds"
+								sleep 30
 								wget "${url}" -O "${dest}/$(basename ${url})"
 								;;
 						esac

@@ -1,3 +1,10 @@
+live-boot (1:20210208+grml.7) unstable; urgency=medium
+
+  * static booting
+  * check if http resource is available after configuring the network
+
+ -- Torsten Fichtner <fichte@amk.wtf>  Sat, 15 Feb 2025 15:00:00 +0200
+
 live-boot (1:20210208+grml.6) unstable; urgency=medium
 
   [ Chris Hofstaedtler ]
