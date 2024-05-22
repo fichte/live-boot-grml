@@ -1,9 +1,29 @@
-live-boot (1:20210208+grml.4) unstable; urgency=medium
+live-boot (1:20210208+grml.6) unstable; urgency=medium
 
   * static booting
   * check if http resource is available after configuring the network
 
  -- Torsten Fichtner <fichte@amk.wtf>  Sun, 28 Jul 2023 15:00:00 +0200
+
+live-boot (1:20210208+grml.5) unstable; urgency=medium
+
+  [ ThomasToka ]
+  * [ff77ad6] + [0fe1097] Support new live-netdev feature to alternatively use
+    a given mac address for the active network device, format is
+    "live-netdev=xx:xx:xx:xx:xx:xx"
+
+  [ Michael Prokop ]
+  * [876ec30] live-netdev: unify coding style and drop noop $NETDEV
+    assignment
+
+ -- Michael Prokop <mika@grml.org>  Fri, 08 Sep 2023 11:23:14 +0200
+
+live-boot (1:20210208+grml.4) unstable; urgency=medium
+
+  [ Michael Laß ]
+  * [98d3d05] 9990-main.sh: activate LVM volumes if needed.
+
+ -- Michael Prokop <mika@grml.org>  Fri, 08 Sep 2023 08:50:55 +0200
 
 live-boot (1:20210208+grml.3) unstable; urgency=medium
 
